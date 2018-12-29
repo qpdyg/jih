@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jih_api" />
+        <module name="jih_consumer" />
+        <module name="jih_eureka" />
+        <module name="jih_manage" />
+        <module name="jih_redis" />
+        <module name="jih_ym" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jih" target="1.8" />
+      <module name="jih_api" target="1.8" />
+      <module name="jih_consumer" target="1.8" />
+      <module name="jih_eureka" target="1.8" />
+      <module name="jih_manage" target="1.8" />
+      <module name="jih_redis" target="1.8" />
+      <module name="jih_ym" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

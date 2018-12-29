@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaolc.mapper.UsersMapper">
+  <!-- 用户登陆-->
+  <select id="queryByName" parameterType="com.xiaolc.model.Users" resultType="com.xiaolc.model.Users">
+    SELECT
+    * FROM users
+    WHERE userstate ='01'
+    AND  NAME = #{name}
+    AND PASSWORD = #{password}
+  </select>
+  <select id="fandAll" resultType="com.xiaolc.model.Users">
+        SELECT
+        * from users
+        WHERE userstate ='01'
+    </select>
+
+  <!--  新增用户-->
+  <insert id="save" parameterType="com.xiaolc.model.Users">
+        insert into users (id,name,salt,userstate,password,jid,udate)
+          VALUES(#{id},#{name},#{salt},'01',#{password},'03',now())
+    </insert>
+
+  <!--  删除用户-->
+  <delete id="delete" parameterType="java.lang.String">
+        update users set userstate = '02' where id = #{id}
+    </delete>
+
+  <!--  更新用户-->
+  <update id="update" parameterType="com.xiaolc.model.Users">
+    update users
+    <set>
+      <if test="nickname != null and nickname !=''">nickname=#{nickname},</if>
+      <if test="url != null and url !=''">url=#{url},</if>
+      <if test="sex != null and sex !=''">sex=#{sex},</if>
+      <if test="age !=null and age !=''"> age=#{age},</if>
+      <if test="password !=null and password !=''"> password=#{password},</if>
+    </set>
+    where id=#{id}
+  </update>
+</mapper>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jih_consumer:war">
+    <output-path>$PROJECT_DIR$/jih_consumer/target</output-path>
+    <root id="archive" name="jih_consumer.war">
+      <element id="artifact" artifact-name="jih_consumer:war exploded" />
+    </root>
+  </artifact>
+</component>

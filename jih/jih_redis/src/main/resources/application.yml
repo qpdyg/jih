@@ -1,0 +1,27 @@
+server:
+  port: 7010
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+      #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: jih-redis
+    prefer-ip-address: true
+  server:
+    enable-self-preservation: false
+spring:
+  application:
+    name: jih_redis
+  redis:
+    host: 111.231.231.56
+    password: 13723037690aa
+    port: 6379
+    database: 8
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 8
+      max-wait: -1
+    timeout: 0

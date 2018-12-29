@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jih/jih.iml" filepath="$PROJECT_DIR$/jih/jih.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jih/jih_api/jih_api.iml" filepath="$PROJECT_DIR$/jih/jih_api/jih_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jih/jih_consumer/jih_consumer.iml" filepath="$PROJECT_DIR$/jih/jih_consumer/jih_consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jih/jih_eureka/jih_eureka.iml" filepath="$PROJECT_DIR$/jih/jih_eureka/jih_eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jih/jih_manage/jih_manage.iml" filepath="$PROJECT_DIR$/jih/jih_manage/jih_manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jih/jih_redis/jih_redis.iml" filepath="$PROJECT_DIR$/jih/jih_redis/jih_redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jih/jih_ym/jih_ym.iml" filepath="$PROJECT_DIR$/jih/jih_ym/jih_ym.iml" />
+    </modules>
+  </component>
+</project>

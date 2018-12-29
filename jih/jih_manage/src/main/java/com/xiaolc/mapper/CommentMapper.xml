@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaolc.mapper.CommentMapper">
+  <!--根据内容id查评论-->
+  <select id="fandBycid" resultType="com.xiaolc.model.Comment" parameterType="java.lang.String">
+    select * from comment
+    where ctate='01'
+    and cid=#{cid}
+  </select>
+  <!--插入评论-->
+  <insert id="save" parameterType="com.xiaolc.model.Comment">
+    insert into comment(mid,id,cid,cmtxt,cmdate,ctate)
+    values(#{mid},#{id},#{cid},#{cmtxt},now(),'01')
+  </insert>
+  <!--修改评论-->
+  <update id="update" parameterType="com.xiaolc.model.Comment">
+    update comment
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cmtxt != null">
+        cmtxt = #{cmtxt,jdbcType=VARCHAR},
+      </if>
+      <if test="cmdate != null">
+        cmdate = #{cmdate,jdbcType=VARCHAR},
+      </if>
+      <if test="ctate != null">
+        ctate = #{ctate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mid = #{mid,jdbcType=VARCHAR}
+  </update>
+  <!--删除评论-->
+  <update id="delete" parameterType="java.lang.String">
+    update comment
+    set ctate = '02'
+    where mid = #{mid,jdbcType=VARCHAR}
+  </update>
+</mapper>

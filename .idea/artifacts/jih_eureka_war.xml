@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jih_eureka:war">
+    <output-path>$PROJECT_DIR$/jih/jih_eureka/target</output-path>
+    <root id="archive" name="microservicecloud.war">
+      <element id="artifact" artifact-name="jih_eureka:war exploded" />
+    </root>
+  </artifact>
+</component>

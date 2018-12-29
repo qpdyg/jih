@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaolc.mapper.ContentMapper">
+    <resultMap id="BaseResultMap" type="com.xiaolc.model.Content">
+        <id column="cid" jdbcType="VARCHAR" property="cid"/>
+        <result column="mid" property="mid"/>
+        <result column="id" property="id"/>
+        <result column="ctxt" property="ctxt"/>
+        <result column="cdate" property="cdate"/>
+        <association property="users" javaType="com.xiaolc.model.Users">
+            <id column="id" property="id"/>
+            <result column="jid" property="jid"/>
+            <result column="name" property="name"/>
+            <result column="sex" property="sex"/>
+            <result column="age" property="age"/>
+            <result column="url" property="url"/>
+            <result column="password" property="password"/>
+            <result column="nickname" property="nickname"/>
+            <result column="udate" property="udate"/>
+            <result column="userstate" property="userstate"/>
+            <result column="salt" property="salt"/>
+        </association>
+    </resultMap>
+    <select id="fandAll" resultType="com.xiaolc.model.Content">
+  select c.*,u.name from content c
+  left join users u
+  on c.id=u.id
+  where c.state='01'
+  order by cdate desc
+</select>
+    <!--根据id查内容-->
+    <select id="findById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from content
+    where cid = #{cid,jdbcType=VARCHAR}
+    and state='01'
+  </select>
+    <!--根据名称进行模糊查询内容-->
+    <select id="fandName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from content
+    where state='01'
+    and cname like CONCAT('%', #{cname}, '%')
+  </select>
+    <!--添加内容-->
+    <insert id="save" parameterType="com.xiaolc.model.Content">
+    insert into content (cid,id,ctxt,state,cname,cdate)
+    values(#{cid},#{id},#{ctxt},'01',#{cname},now())
+
+  </insert>
+    <!--修改内容-->
+    <update id="update" parameterType="com.xiaolc.model.Content">
+        update content
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="ctxt != null">
+                ctxt = #{ctxt,jdbcType=VARCHAR},
+            </if>
+            <if test="cdate != null">
+                cdate = #{cdate,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where cid = #{cid,jdbcType=VARCHAR}
+    </update>
+    <!--删除内容-->
+    <update id="delete" parameterType="java.lang.String">
+    update content
+    set state = '02'
+    where cid = #{cid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    register-with-eureka: true
+spring:
+  application:
+    name: jin-ym
+  http:
+    multipart:
+      max-request-size: 100mb
+      max-file-size: 100mb
+
+feign:
+  hystrix:
+    enabled: true

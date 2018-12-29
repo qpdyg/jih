@@ -1,0 +1,3 @@
+#swagger配置
+swagger2:
+  enable: false
