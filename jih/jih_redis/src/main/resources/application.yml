@@ -16,7 +16,7 @@ spring:
     name: jih_redis
   redis:
     host: 111.231.231.56
-    password: 13723037690aa
+    password:
     port: 6379
     database: 8
     pool:
