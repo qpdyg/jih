@@ -136,7 +136,7 @@ public class FtpUtil {
     public static void main(String[] args) {
         try {
             FileInputStream in = new FileInputStream(new File("c:/1.jpg"));
-            boolean flag = uploadFile("111.231.231.56", 21, "licheng", "15038705068aa", "/home/ftp/", "/", "11.jpg", in);
+            boolean flag = uploadFile("111.231.231.56", 21, "用户名", "密码", "/home/ftp/", "/", "11.jpg", in);
             System.out.println(flag);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
